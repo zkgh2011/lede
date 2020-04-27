@@ -7,15 +7,15 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: Cloud_compile0427
+name: cloud-compile2
 
 on:
   push:
     branches: 
       - master
   #     ↑↑↑ 改成你的分支名, 一般是master
-  schedule:
-    - cron: 0 20 * * *
+  # schedule:
+  #   - cron: 0 20 * * *
   # release:
   #   types: [published]
 
