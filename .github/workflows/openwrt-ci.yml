@@ -55,6 +55,8 @@ jobs:
             php*
           sudo -E apt-get update
           sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
+          sudo -E apt-get -y install python3.5 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib
+          sudo -E apt-get -y install gcc-9 g++-9
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
           
@@ -190,15 +192,124 @@ jobs:
           CONFIG_PACKAGE_tree=y
           CONFIG_PACKAGE_vim-fuller=y
           CONFIG_PACKAGE_wget=y
+          CONFIG_PACKAGE_node=y
           CONFIG_NODEJS_10=y
-          # CONFIG_NODEJS_12 is not set
-          CONFIG_NODEJS_ICU_NONE=y
           EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
           cat >> .config <<EOF
           # CONFIG_TARGET_IMAGES_PAD is not set
           # CONFIG_VMDK_IMAGES is not set
+          # CONFIG_NODEJS_12 is not set
+          # CONFIG_NODEJS_ICU_SMALL is not set
+          # CONFIG_NODEJS_ICU_SYSTEM is not set
+          # CONFIG_PACKAGE_node-actions-on-google is not set
+          # CONFIG_PACKAGE_node-alexa-app is not set
+          # CONFIG_PACKAGE_node-arduino-firmata is not set
+          # CONFIG_PACKAGE_node-ask-sdk is not set
+          # CONFIG_PACKAGE_node-authenticate-pam is not set
+          # CONFIG_PACKAGE_node-autobahn is not set
+          # CONFIG_PACKAGE_node-aws-iot-device-sdk is not set
+          # CONFIG_PACKAGE_node-aws-sdk is not set
+          # CONFIG_PACKAGE_node-azure-event-hubs is not set
+          # CONFIG_PACKAGE_node-azure-iot-device is not set
+          # CONFIG_PACKAGE_node-azure-iot-device-amqp is not set
+          # CONFIG_PACKAGE_node-azure-iot-device-http is not set
+          # CONFIG_PACKAGE_node-azure-iot-device-mqtt is not set
+          # CONFIG_PACKAGE_node-azure-iothub is not set
+          # CONFIG_PACKAGE_node-bignum is not set
+          # CONFIG_PACKAGE_node-binaryjs is not set
+          # CONFIG_PACKAGE_node-bleacon is not set
+          # CONFIG_PACKAGE_node-bleno is not set
+          # CONFIG_PACKAGE_node-bluetooth-hci-socket is not set
+          # CONFIG_PACKAGE_node-browserify is not set
+          # CONFIG_PACKAGE_node-bufferutil is not set
+          # CONFIG_PACKAGE_node-coap is not set
+          # CONFIG_PACKAGE_node-cpx is not set
+          # CONFIG_PACKAGE_node-cylon is not set
+          # CONFIG_PACKAGE_node-cylon-firmata is not set
+          # CONFIG_PACKAGE_node-cylon-gpio is not set
+          # CONFIG_PACKAGE_node-cylon-i2c is not set
+          # CONFIG_PACKAGE_node-eddystone-beacon is not set
+          # CONFIG_PACKAGE_node-ejdb2_node is not set
+          # CONFIG_PACKAGE_node-enocean-utils is not set
+          # CONFIG_PACKAGE_node-epoll is not set
+          # CONFIG_PACKAGE_node-exorcist is not set
+          # CONFIG_PACKAGE_node-expat is not set
+          # CONFIG_PACKAGE_node-express is not set
+          # CONFIG_PACKAGE_node-ffi is not set
+          # CONFIG_PACKAGE_node-firmata is not set
+          # CONFIG_PACKAGE_node-forever is not set
+          # CONFIG_PACKAGE_node-fuse-bindings is not set
+          # CONFIG_PACKAGE_node-hap-nodejs is not set
+          # CONFIG_PACKAGE_node-hashmap is not set
+          # CONFIG_PACKAGE_node-hid is not set
+          # CONFIG_PACKAGE_node-hid-stream is not set
+          # CONFIG_PACKAGE_node-homebridge is not set
+          # CONFIG_PACKAGE_node-i2c-bus is not set
+          # CONFIG_PACKAGE_node-ibmiotf is not set
+          # CONFIG_PACKAGE_node-ideino-linino-lib is not set
+          # CONFIG_PACKAGE_node-inspect is not set
+          # CONFIG_PACKAGE_node-johnny-five is not set
+          # CONFIG_PACKAGE_node-jsonfile is not set
+          # CONFIG_PACKAGE_node-lambda is not set
+          # CONFIG_PACKAGE_node-level is not set
+          # CONFIG_PACKAGE_node-leveldown is not set
+          # CONFIG_PACKAGE_node-levelup is not set
+          # CONFIG_PACKAGE_node-logfmt is not set
+          # CONFIG_PACKAGE_node-lwm2m-node-lib is not set
+          # CONFIG_PACKAGE_node-megahash is not set
+          # CONFIG_PACKAGE_node-mocha is not set
+          # CONFIG_PACKAGE_node-mqtt is not set
+          # CONFIG_PACKAGE_node-muzzley-client is not set
+          # CONFIG_PACKAGE_node-nconf is not set
+          # CONFIG_PACKAGE_node-net-ping is not set
+          # CONFIG_PACKAGE_node-nino-io is not set
+          # CONFIG_PACKAGE_node-nitrogen is not set
+          # CONFIG_PACKAGE_node-nitrogen-cli is not set
+          # CONFIG_PACKAGE_node-nitrogen-leveldb-store is not set
+          # CONFIG_PACKAGE_node-noble is not set
+          # CONFIG_PACKAGE_node-npm is not set
+          # CONFIG_PACKAGE_node-npm-check-updates is not set
+          # CONFIG_PACKAGE_node-onoff is not set
+          # CONFIG_PACKAGE_node-pi-spi is not set
+          # CONFIG_PACKAGE_node-pm2 is not set
+          # CONFIG_PACKAGE_node-pty is not set
+          # CONFIG_PACKAGE_node-red is not set
+          # CONFIG_PACKAGE_node-red-contrib-gpio is not set
+          # CONFIG_PACKAGE_node-red-contrib-homekit is not set
+          # CONFIG_PACKAGE_node-red-contrib-modbus is not set
+          # CONFIG_PACKAGE_node-red-node-arduino is not set
+          # CONFIG_PACKAGE_node-reverse-wstunnel is not set
+          # CONFIG_PACKAGE_node-rimraf is not set
+          # CONFIG_PACKAGE_node-rpi-gpio is not set
+          # CONFIG_PACKAGE_node-rpio is not set
+          # CONFIG_PACKAGE_node-serialport is not set
+          # CONFIG_PACKAGE_node-serialport-bindings is not set
+          # CONFIG_PACKAGE_node-simple-xmpp is not set
+          # CONFIG_PACKAGE_node-sleep is not set
+          # CONFIG_PACKAGE_node-socket.io is not set
+          # CONFIG_PACKAGE_node-socket.io-client is not set
+          # CONFIG_PACKAGE_node-socket.io-client-legacy is not set
+          # CONFIG_PACKAGE_node-socket.io-legacy is not set
+          # CONFIG_PACKAGE_node-soracom is not set
+          # CONFIG_PACKAGE_node-spi-device is not set
+          # CONFIG_PACKAGE_node-sqlite3 is not set
+          # CONFIG_PACKAGE_node-static is not set
+          # CONFIG_PACKAGE_node-statvfs is not set
+          # CONFIG_PACKAGE_node-twilio is not set
+          # CONFIG_PACKAGE_node-typescript is not set
+          # CONFIG_PACKAGE_node-uglify-js is not set
+          # CONFIG_PACKAGE_node-usb is not set
+          # CONFIG_PACKAGE_node-utf-8-validate is not set
+          # CONFIG_PACKAGE_node-websocket is not set
+          # CONFIG_PACKAGE_node-ws is not set
+          # CONFIG_PACKAGE_node-xmpp is not set
+          # CONFIG_PACKAGE_node-xmpp-client is not set
+          # CONFIG_PACKAGE_node-xmpp-component is not set
+          # CONFIG_PACKAGE_node-xmpp-server is not set
+          # CONFIG_PACKAGE_node-yarn is not set
+          # CONFIG_PACKAGE_node-zigbee2mqtt is not set
           EOF
 
           # 
